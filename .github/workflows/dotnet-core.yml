@@ -20,12 +20,14 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish --configuration Release --no-restore
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v2.0.5
+      run: dotnet publish --configuration Release --output bin
+    - uses: actions/upload-artifact@v2
       with:
-        # Artifact name
-        name: dl
-        # Destination path
+        name: my-artifact
+        path: bin/
+#     - name: Download a Build Artifact
+#       uses: actions/download-artifact@v2.0.5
+#       with:
+#         name: dl
     - name: Test
       run: dotnet test --no-restore --verbosity normal
