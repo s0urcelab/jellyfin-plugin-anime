@@ -20,11 +20,11 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet publish --configuration Release --output bin
+      run: dotnet publish --configuration Release --output dist
     - uses: actions/upload-artifact@v2
       with:
         name: my-artifact
-        path: bin/
+        path: dist/
 #     - name: Download a Build Artifact
 #       uses: actions/download-artifact@v2.0.5
 #       with:
